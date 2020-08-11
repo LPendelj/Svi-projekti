@@ -44,6 +44,12 @@ public class Igra extends Application{
 		
 		Collections.shuffle(cinjenice);
 		
+		
+		
+		
+		
+		
+		
 		launch(args);
 	
 		
@@ -152,6 +158,38 @@ System.out.println("BARONIJA KVIZ\n");
 		
 		
 		}
+
+	public static List<Cinjenice> getCinjenice() {
+		return cinjenice;
+	}
+
+	public static void setCinjenice(List<Cinjenice> cinjenice) {
+		Igra.cinjenice = cinjenice;
+	}
+
+	public static List<Odgovori> getListaOdgovora() {
+		return listaOdgovora;
+	}
+
+	public static void setListaOdgovora(List<Odgovori> listaOdgovora) {
+		Igra.listaOdgovora = listaOdgovora;
+	}
+
+	public static List<Igraci> getListaIgraca() {
+		return listaIgraca;
+	}
+
+	public static void setListaIgraca(List<Igraci> listaIgraca) {
+		Igra.listaIgraca = listaIgraca;
+	}
+
+	public static List<Igraci> getTabela() {
+		return tabela;
+	}
+
+	public static void setTabela(List<Igraci> tabela) {
+		Igra.tabela = tabela;
+	}
 		
 		
 	

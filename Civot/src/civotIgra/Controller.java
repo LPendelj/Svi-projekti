@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -19,10 +20,13 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.stage.Window;
+import javafx.stage.WindowEvent;
 import model.Datasource;
 
-public class Controller implements Initializable{
+public class Controller implements Initializable {
 
 	//public static List<Cinjenice> cinjenice = new LinkedList<Cinjenice>(); 
 	public static List<Odgovori> listaOdgovora = new LinkedList<Odgovori>();
@@ -35,9 +39,10 @@ public class Controller implements Initializable{
 	}
 
 	@FXML
+	public static Label igr;
+	
+	@FXML
 	private  ComboBox<String> combo1;
-	
-	
 	
 	@FXML
 	private TextField odgovor;
@@ -45,14 +50,7 @@ public class Controller implements Initializable{
 	@FXML
 	private Button dugmeOk;
 	
-	@FXML
-	private  TextField polje;
 	
-	@FXML
-	public Label cinjenica;
-	
-	@FXML
-	public  Label oznakaUnos;
 	
 	@FXML
 	public  Label oznaka;
@@ -62,7 +60,9 @@ public class Controller implements Initializable{
 	
 	@FXML
 	private static  int brojIgraca;
-
+	
+	@FXML
+	private  TextField polje;
 
 	
 	@FXML
@@ -88,34 +88,64 @@ public class Controller implements Initializable{
 	
 	//pozivamo metod za menjanje scene
 	
+	
+	public Parent root;
+	public Scene secondaryStage;
+	
 	public void promeniScenu(ActionEvent event) throws IOException {
 				
-		Parent root2 = FXMLLoader.load(getClass().getResource("Window2.fxml"));
-		Scene secondaryStage = new Scene(root2);
+		 root = FXMLLoader.load(getClass().getResource("Window2.fxml"));
+		 secondaryStage = new Scene(root);
+		//uzimamo informacije  Stage-a
+		Stage window = (Stage)(((Node) event.getSource()).getScene().getWindow());
+		window.setScene(secondaryStage);
+		
+		
+		
+		window.show();
+		
+		
+			
+		
+		
+	}
+	
+	
+	public void pokreniIgru(ActionEvent event) throws IOException, ClassNotFoundException, InterruptedException {
+		
+		Stage window;
+		
+		window = new Stage();
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("WindowUnos.fxml"));
+		root = loader.load();
+		
+		ControllerIgra cont = loader.getController();
+		cont.setIgrac();
+		cont.setCinjenica();
+		
+		window.setScene(new Scene(root));
+		
+		window.show();
+			
+		
+	}
+	
+	public void pustiBiranje(ActionEvent event) throws IOException {
+		
+		Parent root4 = FXMLLoader.load(getClass().getResource("WindowIzbor.fxml"));
+		Scene secondaryStage = new Scene(root4);
 		//uzimamo informacije  Stage-a
 		Stage window = (Stage)(((Node) event.getSource()).getScene().getWindow());
 		window.setScene(secondaryStage);
 		
 		window.show();
 		
+		
+		
 	}
 	
 	
-	public void pokreniIgru(ActionEvent event) throws IOException, ClassNotFoundException {
-		
-		
-		Parent root3 = FXMLLoader.load(getClass().getResource("WindowUnos.fxml"));
-		Scene secondaryStage = new Scene(root3);
-		//uzimamo informacije  Stage-a
-		Stage window = (Stage)(((Node) event.getSource()).getScene().getWindow());
-		window.setScene(secondaryStage);
-		
-		window.show();
-		
 
-
-	}
-	
 	
 	public  Label getOznaka() {
 		return oznaka;
@@ -145,14 +175,38 @@ public class Controller implements Initializable{
 		}	
 	}
 	
-	public void pokret(MouseEvent e) {
-	String a = Igra.cinjenice.get(0).getSadrzaj();
-	cinjenica.setText(a);
-	}
 	
-	public void initialize(URL url, ResourceBundle rb) {
+	
+	
+	
+	
+	//Label cinjenica = new Label( Igra.cinjenice.get(0).getSadrzaj());
+	
+	//Label igr = new Label();
+	//public static void setTextToLabel () {
+		//igr.setText( listaIgraca.get(0).getIme() + ",");
+	//}
+	
+
+	
+	
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		// TODO Auto-generated method stub
 		
 	}
+
+	
+
+
+
+	
+
+	
+	
+	//igr.setText();
+	//)
 
 }
 	
