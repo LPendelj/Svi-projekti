@@ -8,7 +8,7 @@ public class Album {
 	private String izvodjac;
 	private ArrayList<Pesma> pesme;
 	
-	public Album(String ime, String izvodjac, ArrayList<Pesma> pesme) {
+	public Album(String ime, String izvodjac) {
 		super();
 		this.ime = ime;
 		this.izvodjac = izvodjac;
