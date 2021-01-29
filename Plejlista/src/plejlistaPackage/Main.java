@@ -1,6 +1,7 @@
 package plejlistaPackage;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.ListIterator;
 import java.util.Scanner;
@@ -53,6 +54,7 @@ public class Main {
 			System.out.println("Plejlista prazna");
 		} else {
 			System.out.println("Slusa se " + listiterator.next().toString());
+			ispisiOpcije();
 		}
 		
 		while(!i) {
@@ -87,18 +89,66 @@ public class Main {
 				if(listiterator.hasPrevious()) {
 					System.out.println("Pusta se " + listiterator.previous().toString());
 				} else {
-					System.out.println("Kraj liste");
+					System.out.println("Lista je ponovo na pocetku");
 					n= true;
 				}
 				break;
 			case 3: 
+				if(n) {
+					if(listiterator.hasPrevious()) {
+						System.out.println("Pusta se " + listiterator.previous().toString());
+						n=false;
+					} else System.out.println("Na pocetku smo liste");
+				}
+				else {
+					if(listiterator.hasNext()) {
+						System.out.println("Pusta se " + listiterator.next().toString());
+					 n=true;
+					} else {
+						System.out.println("Na karju liste smo.");
+					}
+				}
 				break;
 			case 4:
+				ispisiListu(plejlista);
 				break;
 			case 5:
+				ispisiOpcije();
+				break;
+			case 6:
+				if(plejlista.size()>0) {
+					listiterator.remove();
+					if(listiterator.hasNext()) {
+						System.out.println("Pusta se " + listiterator.next());
+					} else if(listiterator.hasPrevious()) {
+						System.out.println("Pusta se " + listiterator.previous());
+					}
+			}
 				break;
 			}
 		}
+	
+		sk.close();
+	}
+	private static void ispisiOpcije() {
+		System.out.println("Dostupne mogucnosti:\npritisni:");
+		System.out.println("0 - za izlaz\n" + 
+							"1 - da pustis sledecu pesmu\n" +
+							"2 - da pustis prethodnu pesmu\n" +
+							"3 - da ponovis pesmu\n"  +
+							"4 - da prikazes pesme\n" +
+							"5 - ispisi opcije\n" +
+							"6 - obrisi pesmu sa liste\n");
+	}
+	
+	private static void ispisiListu(LinkedList<Pesma> plejlista) {
+		Iterator<Pesma> iterator = plejlista.iterator();
+		System.out.println("---------------------");
+		while(iterator.hasNext()) {
+			System.out.println(iterator.next().toString());
+		}
+		System.out.println("---------------------");
+
 	}
 	
 	
