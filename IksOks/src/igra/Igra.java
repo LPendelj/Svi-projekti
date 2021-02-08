@@ -6,9 +6,29 @@ public class Igra {
 		// TODO Auto-generated method stub
 		
 		
-		Tabla tabla = new Tabla();
+		Tabla igra = new Tabla();
+		int brojac = 1;
 		
-		tabla.prikaziTablu();
+		while (igra.igraAktivna()) {
+			if (brojac % 2 == 1) {
+				igra.pitajIgraca('0');
+			}
+			else {igra.pitajIgraca('X');}
+			brojac++;
+			
+			System.out.println('\n');
+			igra.prikaziTablu();
+		}
+		
+		
+		
+		igra.odigraj('O', 0, 1);
+		
+		igra.prikaziTablu();
+		
+		igra.odigraj('O', 0, 1);
+
+
 	}
 
 }
