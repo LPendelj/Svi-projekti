@@ -84,13 +84,26 @@ public class Tabla {
 	}
 	
 	public boolean neispravanUnos(int r, int k) {
+		if (r>= 0 && r <= 2 && k>= 0 && k <= 2 ) {
+		
+			if(tabla[r-1][k-1] != ' ') {
+			
+			System.out.println("Pozicija zauzeta");
+			return true;
+			}
+		
+		
 		if (r<1||r>3) {
 			return true;
 		}
-		if (k<1||k>3) {
+		if (k<1||k>3 ) {
 			return true;
 		} 
 		return false;
-	}
+	
+		}
+		System.out.println("neispravan unos.");
+		return false;
+		}
 	
 }
