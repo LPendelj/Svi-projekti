@@ -1,2 +1,2 @@
 # Svi-projekti
-3 igre i drugi projekti koje sam pravio 2020. godine.
+Java projekti radjeni tokom 2020. i 2021.
