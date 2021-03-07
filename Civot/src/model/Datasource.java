@@ -13,7 +13,7 @@ import civotIgra.Odgovori;
 public class Datasource  {
 	
 	public static final String DB_NAME = "proba.db";
-	public static final String CONNECTION_STRING = "jdbc:sqlite:D:\\Luka\\Programiranje\\workspace\\Civot\\src\\civotIgra\\" + DB_NAME;
+	public static final String CONNECTION_STRING = "jdbc:sqlite:C:\\Users\\Acer\\eclipse-workspace\\Civot\\bin\\civotIgra\\" + DB_NAME;
 	
 	
 	public static final String TABLE_cinjenice = "cinjenice";

@@ -38,6 +38,13 @@ public class Controller implements Initializable {
 		return imeIgraca;
 	}
 
+	public static void listaj() {
+		for(Igraci s:listaIgraca) {
+			System.out.println(s.getIme());
+		}
+		
+	}
+
 	@FXML
 	public static Label igr;
 	

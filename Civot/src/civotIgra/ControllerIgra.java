@@ -56,30 +56,32 @@ import javafx.scene.control.TextField;
 		
 		public void unesiPojam(ActionEvent e) {
 			
-			int i = 0;
+			
+
+			for(int i = 0; i<Controller.getBrojIgraca(); i++)
+			{
 			
 			
-			if (i<Controller.getBrojIgraca()) {
+			igr.setText(Controller.listaIgraca.get(i).getIme() + ",");
 			String o = odgovor.getText();
-			
-			
-			igr.setText(Controller.listaIgraca.get(i+1).getIme() + ",");
-			
+			odgovor.clear();
+
 			Odgovori odgovorIgraca = new Odgovori(o);
 			Controller.listaOdgovora.add(odgovorIgraca);
 			Controller.listaIgraca.get(i).setLazniOdgovor(odgovorIgraca.getSadrzaj());
-			i++;
-			odgovor.clear();
-			}
-			else {
-				unos.setDisable(true);
-				
-				
+			
 			}
 			
+			//if (i==Controller.getBrojIgraca()) {
+			//	unos.setDisable(true);
+			//}
+			
+				
+			}
+
 		}
 	    
-	}
+	
 	
 	
 

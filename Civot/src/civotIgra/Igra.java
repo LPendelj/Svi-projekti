@@ -44,15 +44,8 @@ public class Igra extends Application{
 		
 		Collections.shuffle(cinjenice);
 		
-		
-		
-		
-		
-		
-		
 		launch(args);
 	
-		
 		
 		Scanner sc = new Scanner(System.in);
 		
@@ -87,8 +80,9 @@ System.out.println("BARONIJA KVIZ\n");
 		
 		System.out.println("Igra pocinje\n");
 		
-		
-		
+	
+		Controller.listaj();
+
 		boolean izlaz=false;
 		int j = 0;
 	
